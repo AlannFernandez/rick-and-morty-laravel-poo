@@ -1,6 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use RickAndMorty\Infrastructure\Controllers\GetCharacterControllers;
+use RickAndMorty\Infrastructure\Controllers\GetCharactersControllers;
 
-Route::get('/', [GetCharacterControllers::class, 'index']);
+Route::get('/', GetCharactersControllers::class);

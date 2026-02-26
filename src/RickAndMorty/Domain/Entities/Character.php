@@ -1,5 +1,5 @@
 <?php
-
+namespace RickAndMorty\Domain\Entities;
 class Character
 {
     public function __construct(
@@ -7,7 +7,6 @@ class Character
         public string $name,
         public string $status,
         public string $image,
-        public Origin $origin,
     )
     {}
 }

@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use RickAndMorty\Domain\Contracts\RickAndMortyApiContract;
+use RickAndMorty\Infrastructure\External\RickAndMortyApiAdapter;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,8 +14,8 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(
-            \RickAndMorty\Domain\Contracts\RickAndMortyApiContract::class,
-            \RickAndMorty\Infrastructure\External\RickAndMortyApiAdapter::class
+            RickAndMortyApiContract::class,
+            RickAndMortyApiAdapter::class
         );
     }
 

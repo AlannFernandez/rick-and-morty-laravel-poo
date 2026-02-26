@@ -2,19 +2,18 @@
 
 namespace RickAndMorty\Application\UseCases;
 
-use Illuminate\Support\Facades\Http;
 use RickAndMorty\Domain\Contracts\RickAndMortyApiContract;
+use RickAndMorty\Domain\Lists\CharacterList;
 
-class GetCharacterUseCase
+readonly class GetCharactersUseCase
 {
     public function __construct(
-        private readonly RickAndMortyApiContract $rickAndMortyApi,
-    )
-    {
-    }
-    public function execute()
+        private RickAndMortyApiContract $rickAndMortyApi,
+    ) {}
+
+
+    public function __invoke(): CharacterList
     {
         return $this->rickAndMortyApi->getCharacters();
     }
-   
 }
