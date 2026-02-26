@@ -11,7 +11,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(
+            \RickAndMorty\Domain\Contracts\RickAndMortyApiContract::class,
+            \RickAndMorty\Infrastructure\External\RickAndMortyApiAdapter::class
+        );
     }
 
     /**

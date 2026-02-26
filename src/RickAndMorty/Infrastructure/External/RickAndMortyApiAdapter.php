@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace RickAndMorty\Infrastructure\External;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use RickAndMorty\Domain\Contracts\RickAndMortyApiContract;
 
-class RickAndMortyController extends Controller
+class RickAndMortyApiAdapter implements RickAndMortyApiContract
 {
-    public function index()
+    public function getCharacters()
     {
         $baseUrl = env('RICK_AND_MORTY_URL');
         // Asegurarse de que termine en / para concatenar
