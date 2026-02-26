@@ -4,6 +4,7 @@ namespace RickAndMorty\Infrastructure\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
+use Illuminate\View\View;
 use RickAndMorty\Application\UseCases\GetCharactersUseCase;
 use RickAndMorty\Infrastructure\Resources\GetCharactersResource;
 
@@ -14,13 +15,13 @@ class GetCharactersControllers extends Controller
     ) {}
 
 
-    public function __invoke(): JsonResponse
+    public function __invoke(): View
     {
 
-        $useCase = $this->getCharactersUseCase->__invoke();
+        $characterList = $this->getCharactersUseCase->__invoke();
 
-        return response()->json(
-            GetCharactersResource::toArray($useCase)
-        );
+        return view('characters.index', [
+            'characters' => GetCharactersResource::toArray($characterList)
+        ]);
     }
 }
